@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_song_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:paddingTop="@dimen/view_medium_spacing"
+    android:paddingBottom="@dimen/view_medium_spacing">
+
+    <TextView
+        android:id="@+id/text_song_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/view_medium_spacing"
+        android:paddingRight="50dp"
+        android:text="song name"
+        android:textColor="@color/colorFont"
+        android:textSize="@dimen/text_size_small" />
+
+    <TextView
+        android:id="@+id/text_song_item_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_song_item_name"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed-light"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/view_medium_spacing"
+        android:paddingRight="@dimen/view_medium_spacing"
+        android:text="album"
+        android:textColor="@color/colorFont2"
+        android:textSize="@dimen/text_size_extra_small" />
+
+    <ImageButton
+        android:id="@+id/image_button_item_more_options"
+        android:layout_width="30dp"
+        android:layout_height="34dp"
+        android:src="@drawable/ic_more_vert"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+
+        android:layout_marginRight="@dimen/view_medium_spacing"/>
+
+</RelativeLayout>

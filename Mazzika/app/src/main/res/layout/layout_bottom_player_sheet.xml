@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_bottom_player_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:elevation="@dimen/view_medium_spacing"
+    android:orientation="vertical"
+    app:behavior_peekHeight="@dimen/layout_player_sheet_peek_height"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <ScrollView
+        android:id="@+id/scroll_view_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_player_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/view_rounded_corners"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layout_sheet_header_player"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/layout_sheet_header_height"
+                    android:background="@color/colorAccent">
+
+                    <ImageView
+                        android:id="@+id/image_sheet_horizontal_rule"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_horizontal_rule" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_quick_song_access_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="@dimen/view_medium_spacing">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_thumbnail_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:elevation="12dp"
+                        app:cardCornerRadius="@dimen/view_small_rounded_corners">
+
+                        <ImageView
+                            android:layout_width="@dimen/image_thumbnail_dimen"
+                            android:layout_height="@dimen/image_thumbnail_dimen"
+                            android:src="@drawable/album_poster" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/text_sheet_quick_song_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/view_medium_spacing"
+                        android:layout_marginRight="@dimen/view_large_spacing"
+                        android:layout_toRightOf="@id/card_thumbnail_holder"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:maxLines="1"
+                        android:text="sheet song name"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <ImageButton
+                        android:id="@+id/image_button_sheet_quick_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/ic_play_arrow" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/view_medium_spacing">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/view_small_spacing"
+                        android:elevation="12dp"
+                        app:cardCornerRadius="@dimen/view_rounded_corners">
+
+                        <ImageView
+                            android:layout_width="@dimen/image_album_dimen"
+                            android:layout_height="@dimen/image_album_dimen"
+                            android:src="@drawable/album_poster" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <SeekBar
+                        android:id="@+id/seek_bar_sheet"
+                        android:layout_width="@dimen/image_album_dimen"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="@dimen/view_medium_spacing"
+                        android:clickable="true"
+                        android:progressTint="@color/colorAccent"
+                        android:thumbTint="@color/colorAccent" />
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/image_album_dimen"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/text_sheet_current_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed-medium"
+                            android:text="00:00"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <TextView
+                            android:id="@+id/text_sheet_end_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="sans-serif-condensed-medium"
+                            android:text="05:00"
+                            android:textSize="@dimen/text_size_small" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text_sheet_song_name"
+                        android:layout_width="@dimen/image_album_dimen"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/view_medium_spacing"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:gravity="center"
+                        android:text="sheet song name"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <TextView
+                        android:id="@+id/text_sheet_song_album"
+                        android:layout_width="@dimen/image_album_dimen"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="sheet song album"
+                        android:textColor="@color/colorFont2"
+                        android:textSize="@dimen/text_size_extra_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_sheet_transition_buttons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/view_medium_spacing"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/image_sheet_previous"
+                        style="@style/transitionSongsButtons"
+                        android:src="@drawable/ic_skip_previous_arrow" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/button_transition_spacing"
+                        android:layout_marginRight="@dimen/button_transition_spacing"
+                        android:elevation="14dp"
+                        app:cardCornerRadius="@dimen/view_rounded_corners">
+
+                        <ImageView
+                            android:id="@+id/image_sheet_play"
+                            android:layout_width="@dimen/button_sheet_play_dimen"
+                            android:layout_height="@dimen/button_sheet_play_dimen"
+                            android:background="@color/colorAccent"
+                            android:padding="@dimen/view_small_spacing"
+                            android:src="@drawable/ic_play_arrow" />
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/image_sheet_next"
+                        style="@style/transitionSongsButtons"
+                        android:src="@drawable/ic_skip_next_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_sheet_options"
+                    android:layout_width="@dimen/image_album_dimen"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/view_medium_spacing"
+                    android:layout_marginBottom="@dimen/view_medium_spacing"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/image_button_sheet_favorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_favorite" />
+
+                    <ImageButton
+                        android:id="@+id/image_button_sheet_repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/view_large_spacing"
+                        android:layout_marginRight="@dimen/view_large_spacing"
+                        android:src="@drawable/ic_repeat_all" />
+
+                    <ImageButton
+                        android:id="@+id/image_button_sheet_options"
+                        style="@style/transitionSongsButtons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_more_vert" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+</LinearLayout>

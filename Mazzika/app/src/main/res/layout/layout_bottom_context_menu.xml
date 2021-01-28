@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_bottom_context_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:elevation="@dimen/view_medium_spacing"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <View
+        android:id="@+id/view_context_menu_hideable_helper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_player_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="@dimen/view_rounded_corners"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:id="@+id/layout_context_menu_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_context_menu_add_to_playlist"
+                style="@style/contextMenuTexts"
+                android:text="@string/context_options_add_to_playlist" />
+
+            <TextView
+                android:id="@+id/text_context_menu_send_song"
+                style="@style/contextMenuTexts"
+                android:text="@string/context_options_send_song" />
+
+            <TextView
+                android:id="@+id/text_context_menu_set_as_ringtone"
+                style="@style/contextMenuTexts"
+                android:text="@string/context_options_set_as_ringtone" />
+
+            <TextView
+                android:id="@+id/text_context_menu_view_details"
+                style="@style/contextMenuTexts"
+                android:text="@string/context_options_view_details" />
+
+            <TextView
+                android:id="@+id/text_context_menu_delete_song"
+                style="@style/contextMenuTexts"
+                android:text="@string/context_options_delete_song" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/view_medium_spacing"
+                android:layout_marginRight="@dimen/view_medium_spacing"
+                android:background="@color/colorFont" />
+
+            <TextView
+                android:id="@+id/text_context_menu_cancel"
+                style="@style/contextMenuTexts"
+                android:text="@string/context_options_cancel" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

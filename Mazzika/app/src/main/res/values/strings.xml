@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Mazzika</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="extra_splash_text">Made by<br/> @Kareem100</string>
+    <string name="no_songs_available_text">No songs available</string>
+    <string name="context_options_add_to_playlist">Add to Playlist</string>
+    <string name="context_options_send_song">Send Song</string>
+    <string name="context_options_set_as_ringtone">Set as Ringtone</string>
+    <string name="context_options_view_details">View Details</string>
+    <string name="context_options_delete_song">Delete Song</string>
+    <string name="context_options_cancel">Cancel</string>
+</resources>
