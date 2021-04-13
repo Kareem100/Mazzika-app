@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_song_item_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,7 +17,7 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/view_medium_spacing"
         android:paddingRight="50dp"
-        android:text="song name"
+        tools:text="song name"
         android:textColor="@color/colorFont"
         android:textSize="@dimen/text_size_small" />
 
@@ -30,7 +31,7 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/view_medium_spacing"
         android:paddingRight="@dimen/view_medium_spacing"
-        android:text="album"
+        tools:text="album"
         android:textColor="@color/colorFont2"
         android:textSize="@dimen/text_size_extra_small" />
 

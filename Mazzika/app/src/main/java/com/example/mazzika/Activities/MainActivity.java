@@ -32,6 +32,8 @@ import com.example.mazzika.Track.Song;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private NotificationManager notificationManager;
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView contextMenuDeleteSongText;
     private TextView contextMenuCancelText;
     private SongsFragment songsFragment;
+    private ArrayList<Song> songsList;
     private Song currentSong;
     private RepeatType repeatType;
     private boolean wasPaused;
@@ -228,6 +231,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private String getFormattedTime(int milliseconds) {
+        String formattedString = "";
+        int minutes = milliseconds / 60000;
+        int seconds = (milliseconds % 60000) / 1000;
+        if (minutes < 10) formattedString += "0";
+        formattedString += String.valueOf(minutes);
+        formattedString += ":";
+        if (seconds < 10) formattedString += "0";
+        formattedString += String.valueOf(seconds);
+        return formattedString;
+    }
+
     public void manageContextMenu(boolean fromSheet) {
         if (fromSheet)
             contextMenuContainerLayout.setBackgroundColor(getColor(R.color.colorPrimary));
@@ -308,16 +323,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private String getFormattedTime(int milliseconds) {
-        String formattedString = "";
-        int minutes = milliseconds / 60000;
-        int seconds = (milliseconds % 60000) / 1000;
-        if (minutes < 10) formattedString += "0";
-        formattedString += String.valueOf(minutes);
-        formattedString += ":";
-        if (seconds < 10) formattedString += "0";
-        formattedString += String.valueOf(seconds);
-        return formattedString;
+    public ArrayList<Song> getSongsList() {
+        return songsList;
+    }
+
+    public void setSongsList(ArrayList<Song> songsList) {
+        this.songsList = songsList;
     }
 
     @Override

@@ -62,9 +62,10 @@ public class SongsFragment extends Fragment implements SongsAdapter.OnSongClickL
         else
             noSongsText.setVisibility(View.GONE);
 
-        if (!initializedOnce && songsArrayList.size() > 0){
+        if (!initializedOnce && !songsArrayList.isEmpty()){
             // put the first song in the player track and initially pause it
             manageSongState();
+            mainActivity.setSongsList(songsArrayList);
             mainActivity.songIsPaused(true);
             initializedOnce = true;
         }
@@ -86,13 +87,16 @@ public class SongsFragment extends Fragment implements SongsAdapter.OnSongClickL
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST ){
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(context, "Permission Granted !", Toast.LENGTH_SHORT).show();
-                noSongsText.setVisibility(View.GONE);
                 setRecyclerView();
+                manageSongState();
+                noSongsText.setVisibility(View.GONE);
+                mainActivity.songIsPaused(true);
             }
             else
                 Toast.makeText(context, "No Permission Granted !", Toast.LENGTH_SHORT).show();
@@ -101,7 +105,8 @@ public class SongsFragment extends Fragment implements SongsAdapter.OnSongClickL
 
     private void setRecyclerView() {
         setSongs();
-        songsAdapter = new SongsAdapter(songsArrayList, this, getActivity(), mainActivity);
+        songsAdapter = new SongsAdapter(songsArrayList, this,
+                getActivity(), mainActivity);
         songsRecyclerView.setAdapter(songsAdapter);
     }
 
@@ -166,16 +171,29 @@ public class SongsFragment extends Fragment implements SongsAdapter.OnSongClickL
     }
 
     public void manageNextSong(){
-        songsAdapter.SELECTED_IDX = (songsAdapter.SELECTED_IDX + 1)%songsAdapter.getItemCount();
-        onSongClick(songsAdapter.SELECTED_IDX);
+        try{
+            if (songsAdapter.SELECTED_IDX == songsAdapter.getItemCount() - 1)
+                songsAdapter.SELECTED_IDX = 0;
+            else
+                songsAdapter.SELECTED_IDX += 1;
+            onSongClick(songsAdapter.SELECTED_IDX);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "No Songs To Show Or To Play !", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void managePreviousSong(){
-        if (songsAdapter.SELECTED_IDX < 1)
-            songsAdapter.SELECTED_IDX = songsAdapter.getItemCount() - 1;
-        else
-            songsAdapter.SELECTED_IDX -= 1;
-        onSongClick(songsAdapter.SELECTED_IDX);
+        try{
+            if (songsAdapter.SELECTED_IDX == 0)
+                songsAdapter.SELECTED_IDX = songsAdapter.getItemCount() - 1;
+            else
+                songsAdapter.SELECTED_IDX -= 1;
+            onSongClick(songsAdapter.SELECTED_IDX);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "No Songs To Show Or To Play !", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void releaseMedia(){
