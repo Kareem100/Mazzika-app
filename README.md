@@ -19,17 +19,17 @@ With multiple features like (add song to favourites, delete song, set as a ringt
 
 ## Screenshots
 
-## Songs Fragment
+### Songs Fragment
 ![](Screenshots/0_songs_fragment.jpg)
 
-## Bottom Sheet
+### Bottom Sheet
 ![](Screenshots/1_flexible_bottomsheet_behaviour.jpg)
 
-## Playback Audio Manager
+### Playback Audio Manager
 ![](Screenshots/2_playback_manager.jpg)
 
-## Some Features
+### Some Features
 ![](Screenshots/3_favourite_feature.jpg)
 
-## Media Notification
+### Media Notification
 ![](Screenshots/4_media_notification.jpg)
