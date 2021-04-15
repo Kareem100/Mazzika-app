@@ -1,6 +1,21 @@
 # Mazzika-app
-A media player android application.
 
+### App Description
+
+<b> Mazzika-app </b> is a media player android application.</br> 
+For playing any audio with duration more than 30 seconds. </br> 
+With media notification in the status bar and the navigation bar. </br> 
+With multiple features like (add song to favourites, delete song, set as a ringtone, etc...).</br>
+
+***
+
+##### Tools Used
+- SQLite
+- Receivers
+- Notifications
+- MVC Model
+
+***
 
 ## Screenshots
 
