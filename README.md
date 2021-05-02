@@ -4,7 +4,7 @@
 
 <b> Mazzika-app </b> is a media player android application.</br> 
 For playing any audio with duration more than 30 seconds. </br> 
-With media notification in the status bar and the navigation bar. </br> 
+With media notification in the status bar and the notification bar. </br> 
 With multiple features like (add song to favourites, delete song, set as a ringtone, etc...).</br>
 
 ***
@@ -14,6 +14,11 @@ With multiple features like (add song to favourites, delete song, set as a ringt
 - Receivers
 - Notifications
 - MVC Model
+
+***
+
+##### Released apk
+[Download Link](https://drive.google.com/file/d/17abAueoXWRjoKGlX9Br4Z0-uQKma63et/view?usp=sharing)
 
 ***
 
